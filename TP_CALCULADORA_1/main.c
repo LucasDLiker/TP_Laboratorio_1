@@ -23,6 +23,8 @@ int main()
     long long int factorialOperadorB;
     int verificadorUno=0;
     int verificadorDos=0;
+    int casoTres=0;
+
 
     printf("\n Calculadora de enteros. Ingrese una de las siguientes opciones: \n");
     system ("pause");
@@ -41,20 +43,19 @@ int main()
         printf("\n Factorial de A y B (!N) \n");
         printf("\n (4).- Informar resultados: ");
         printf("\n (5).- Salir de la calculadora.- \n");
-        scanf("%d", &opcion);
+
+        opcion=askOption();
 
         //Lo siguiente, usando switch es la codificacion del menu de opciones con sus respectivas funciones
 
         switch(opcion)
         {
         case 1:
-        printf("Ingrese el primer numero: ");
-        scanf("%d", &operadorA);
+        askNumber(&operadorA);
         verificadorUno++;
         break;
         case 2:
-        printf("Ingrese el segundo numero: ");
-        scanf("%d", &operadorB);
+        askNumber(&operadorB);
         verificadorDos++;
         break;
         case 3:
@@ -75,16 +76,18 @@ int main()
         division=dividir(operadorA, operadorB);
         //Factorial
         factorial=factorialMainA(operadorA);
-
         factorialOperadorB=factorialMainB(operadorB);
+        casoTres++;
+
 
         printf("\n Calculando resultados...\n");
             }
         break;
         case 4:
-            if (verificadorUno == 0 || verificadorDos == 0)
+
+            if (verificadorUno == 0 || verificadorDos == 0 || casoTres==0)
             {
-            printf("Error. Ingrese numeros validos.");
+            printf("Error. No ha ingresado la opcion 3 o no ha ingresado los datos");
             }
         else
         {
@@ -100,15 +103,25 @@ int main()
             {
         printf("\n El resultado de %d / %d es: %.2f \n",operadorA, operadorB, division);
             }
-            if (operadorA < 0 || operadorB < 0)
+            if (operadorA < 0)
             {
             printf("\n No se puede sacar el factorial de un numero negativo\n");
             }
             else
             {
         printf("\n El resultado del factorial de %d es: %lld \n", operadorA, factorial);
-        printf("\n El resultado del factorial de %d es: %lld \n", operadorB, factorialOperadorB);
+            if (operadorB < 0)
+             {
+                printf("\n No se puede sacar el factorial de un numero negativo\n");
+             }
+             else
+             {
+                printf("\n El resultado del factorial de %d es: %lld \n", operadorB, factorialOperadorB);
+             }
+
             }
+
+
         }
         break;
         case 5:

@@ -3,7 +3,9 @@
 El nombre de las funciones que van a ser llamadas del main.c
 */
 
+int askOption (void);
 
+void askNumber (int* numero);
 
 
 
@@ -20,3 +22,4 @@ float dividir(int operadorA, int operadorB);
 long long int factorialMainA(int operadorA);
 
 long long int factorialMainB(int operadorB);
+

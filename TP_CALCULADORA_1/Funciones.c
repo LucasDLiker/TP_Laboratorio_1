@@ -3,6 +3,25 @@
 *En esta página estan codificados las funciones matematicas
 que van a ser llamadas desde el main.c.-
 */
+//Funcion para ingresar opciones.-
+int askOption (void)
+{
+    int opcion;
+    printf("\n Ingrese una opcion \n");
+    scanf("%d", &opcion);
+    return opcion;
+
+}
+
+//Funcion para pedir numeros.-
+
+void askNumber (int* numero)
+{
+    printf("\n Ingrese un numero: \n");
+    scanf("%d", numero);
+}
+
+
 
 //Funcion de suma
 int sumar(int operadorA, int operadorB)
@@ -18,7 +37,7 @@ int restar(int operadorA, int operadorB)
 {
 
     int resultadoResta;
-    resultadoResta= operadorA-operadorB;
+    resultadoResta=  operadorA-operadorB;
 
     return resultadoResta;
 }
@@ -27,7 +46,7 @@ int multiplicar(int operadorA, int operadorB)
 {
 
     int resultadoMultiplicacion;
-    resultadoMultiplicacion=operadorA*operadorB;
+    resultadoMultiplicacion= operadorA*operadorB;
 
     return resultadoMultiplicacion;
 }
@@ -72,4 +91,6 @@ long long int factorialMainB(int operadorB)
 
     return resultadoFactorialOperadorB;
 
-}
+    }
+
+
