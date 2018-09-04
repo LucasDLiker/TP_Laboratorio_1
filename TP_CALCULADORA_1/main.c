@@ -66,8 +66,8 @@ int main()
         printf("\n El resultado de la resta es: %d \n", resta);
         printf("\n El resultado de la multiplicacion es: %d \n", multiplicacion);
         printf("\n El resultado de la division es: %f \n", division);
-        printf("\n El resultado del factorial de A es: %d \n", factorial);
-        printf("\n El resultado del factorial de B es: %d \n", factorialOperadorB);
+        printf("\n El resultado del factorial de A es: %lld \n", factorial);
+        printf("\n El resultado del factorial de B es: %lld \n", factorialOperadorB);
 
         break;
         case 5:
