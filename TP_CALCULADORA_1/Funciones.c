@@ -1,4 +1,10 @@
+/*
+*Funciones:
+*En esta página estan codificados las funciones matematicas
+que van a ser llamadas desde el main.c.-
+*/
 
+//Funcion de suma
 int sumar(int operadorA, int operadorB)
 {
 
@@ -7,7 +13,7 @@ int sumar(int operadorA, int operadorB)
 
     return resultadoSuma;
 }
-
+//Funcion de resta
 int restar(int operadorA, int operadorB)
 {
 
@@ -16,7 +22,7 @@ int restar(int operadorA, int operadorB)
 
     return resultadoResta;
 }
-
+//Funcion de multiplicacion
 int multiplicar(int operadorA, int operadorB)
 {
 
@@ -25,7 +31,7 @@ int multiplicar(int operadorA, int operadorB)
 
     return resultadoMultiplicacion;
 }
-
+//funcion de division
 float dividir(int operadorA, int operadorB)
 {
 
@@ -34,8 +40,8 @@ float dividir(int operadorA, int operadorB)
 
     return (float)resultadoDivision;
 }
-
-int factorialMainA(int operadorA)
+//funcion de factorial
+long long int factorialMainA(int operadorA)
 {
 
     long long int resultadoFactorial=1;
@@ -51,7 +57,7 @@ int factorialMainA(int operadorA)
 
 }
 
-int factorialMainB(int operadorB)
+long long int factorialMainB(int operadorB)
 
 {
 
