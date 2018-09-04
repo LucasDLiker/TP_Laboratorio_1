@@ -1,0 +1,2 @@
+El ùnico problema que presenta la calculadora es en el factorial de numeros grandes, ya que,
+no se como usar perfectamente "long long"

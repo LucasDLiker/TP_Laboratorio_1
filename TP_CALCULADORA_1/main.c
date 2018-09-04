@@ -22,6 +22,8 @@ int main()
     float division;
     int factorial;
     int factorialOperadorB;
+    int verificadorUno=0;
+    int verificadorDos=0;
 
     printf("\n Calculadora de enteros. Ingrese una de las siguientes opciones: \n");
     system ("pause");
@@ -45,36 +47,64 @@ int main()
         case 1:
         printf("Ingrese el primer numero: ");
         scanf("%d", &operadorA);
+        verificadorUno++;
         break;
         case 2:
         printf("Ingrese el segundo numero: ");
         scanf("%d", &operadorB);
+        verificadorDos++;
         break;
         case 3:
+        if (verificadorUno == 0 || verificadorDos == 0)
+        {
+            printf("Error. Ingrese numeros validos.");
+        }
+        else
+        {
         suma=sumar(operadorA, operadorB);
         resta=restar(operadorA, operadorB);
         multiplicacion=multiplicar(operadorA, operadorB);
         division=dividir(operadorA, operadorB);
         factorial=factorialMainA(operadorA);
         factorialOperadorB=factorialMainB(operadorB);
-
-        printf("Calculando resultados... Elija la opcion 4 para mostrarlos.");
-
+        printf("\n Calculando resultados...\n");
+        }
         break;
         case 4:
-        printf("\n El resultado de la suma es: %d \n", suma);
-        printf("\n El resultado de la resta es: %d \n", resta);
-        printf("\n El resultado de la multiplicacion es: %d \n", multiplicacion);
-        printf("\n El resultado de la division es: %f \n", division);
-        printf("\n El resultado del factorial de A es: %lld \n", factorial);
-        printf("\n El resultado del factorial de B es: %lld \n", factorialOperadorB);
+            if (verificadorUno == 0 || verificadorDos == 0)
+        {
+            printf("Error. Ingrese numeros validos.");
+        }
+        else
+        {
+        printf("\n El resultado de %d + %d es: %d \n",operadorA, operadorB, suma);
+        printf("\n El resultado de %d - %d es: %d \n",operadorA, operadorB, resta);
+        printf("\n El resultado de %d * %d es: %d \n",operadorA, operadorB, multiplicacion);
 
+        if (operadorA==0 || operadorB==0)
+        {
+            printf("\n Error. No se puede dividir por 0. Ingrese datos validos.\n");
+        }
+        else
+            {
+        printf("\n El resultado de %d / %d es: %f \n",operadorA, operadorB, division);
+            }
+        if (operadorA < 0 || operadorB < 0)
+            {
+            printf("\n No se puede sacar el factorial de un numero negativo\n");
+            }
+        else
+            {
+        printf("\n El resultado del factorial de %d es: %d \n", operadorA, factorial);
+        printf("\n El resultado del factorial de %d es: %d \n", operadorB, factorialOperadorB);
+            }
+        }
         break;
         case 5:
         printf("auf wiedersehen/Hasta Pronto...");
         break;
         default:
-            printf("\n Error. Ingrese una opcion valida del 1 al 7 y 8 para salir. \n");
+            printf("\n Error. Ingrese una opcion valida del 1 al 4 y 5 para salir. \n");
         }
 
     system("pause");
