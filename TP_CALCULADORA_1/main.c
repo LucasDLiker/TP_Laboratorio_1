@@ -110,6 +110,7 @@ int main()
             else
             {
         printf("\n El resultado del factorial de %d es: %lld \n", operadorA, factorial);
+              }
             if (operadorB < 0)
              {
                 printf("\n No se puede sacar el factorial de un numero negativo\n");
@@ -119,7 +120,7 @@ int main()
                 printf("\n El resultado del factorial de %d es: %lld \n", operadorB, factorialOperadorB);
              }
 
-            }
+
 
 
         }
