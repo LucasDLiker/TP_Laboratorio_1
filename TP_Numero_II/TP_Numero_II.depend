@@ -1,0 +1,32 @@
+# depslib dependency file v1.0
+1538539136 source:c:\users\capitan hostias\desktop\lab i - programación i\tp_numero_2\tp_numero_ii\arrayempleados.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<conio.h>
+	<string.h>
+	"funciones.h"
+	"arrayEmpleados.h"
+
+1538522731 c:\users\capitan hostias\desktop\lab i - programación i\tp_numero_2\tp_numero_ii\funciones.h
+
+1538539119 c:\users\capitan hostias\desktop\lab i - programación i\tp_numero_2\tp_numero_ii\arrayempleados.h
+
+1538535100 source:c:\users\capitan hostias\desktop\lab i - programación i\tp_numero_2\tp_numero_ii\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<conio.h>
+	<string.h>
+	"funciones.h"
+	"arrayEmpleados.h"
+
+1538538796 source:c:\users\capitan hostias\desktop\lab i - programación i\tp_numero_2\tp_numero_ii\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<conio.h>
+	<string.h>
+	"funciones.h"
+	"arrayEmpleados.h"
+
