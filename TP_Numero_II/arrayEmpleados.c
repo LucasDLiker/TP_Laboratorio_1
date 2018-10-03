@@ -5,11 +5,6 @@
 #include <string.h>
 #include "funciones.h"
 #include "arrayEmpleados.h"
-#define EMPTY -1
-#define NOTEMPTY 0
-#define ACTIVE 1
-#define INACTIVE 0
-#define MAX 1000
 
 
 int menuOptions()
@@ -35,10 +30,11 @@ int menuOptions()
 int initEmployees(sEmployee* arrayEmployees, int lenght)
 {
     int ret = EMPTY;
+    int i;
     if(arrayEmployees != NULL && lenght!= 0)
     {
         ret = NOTEMPTY;
-        for(int i=0; i<lenght; i++)
+        for(i=0; i<lenght; i++)
         {
             arrayEmployees[i].isEmpty = ACTIVE;
         }
@@ -80,7 +76,7 @@ int searchFreeSlot(sEmployee* arrayEmployees, int lenght)
 
  static int newID()
 {
-    static int id= EMPTY;
+    static int id= MAX;
 
     id ++;
 
@@ -233,11 +229,13 @@ int sortEmployees(sEmployee* arrayEmployees, int quantity)
 {
     int retorno = EMPTY;
     sEmployee aux;
+    int i;
+    int j;
     if(quantity > 0 && arrayEmployees != NULL)
     {
-        for(int i=0; i<quantity -1 ; i++)
+        for(i=0; i<quantity -1 ; i++)
         {
-            for(int j=i+1; j<quantity; j++)
+            for(j=i+1; j<quantity; j++)
             {
                 if(strcmp(arrayEmployees[j].lastName, arrayEmployees[i].lastName) < 0)
                 {
@@ -270,12 +268,13 @@ int sortEmployees(sEmployee* arrayEmployees, int quantity)
 int printEmployees(sEmployee* arrayEmployees, int quantity)
 {
     int ret = EMPTY;
-    printf("\n%5s %30s %30s %8s %3s \n", "ID","NOMBRE","APELLIDO","SUELDO","SECTOR");
-    for(int i = 0; i < quantity; i++)
+    int i;
+    printf("\n%5s %25s %25s %8s %3s \n", "ID","NOMBRE","APELLIDO","SUELDO","SECTOR");
+    for(i = 0; i < quantity; i++)
     {
         if(arrayEmployees[i].isEmpty == 0)
         {
-            printf("%5d %30s %30s %8.2f %3d\n", arrayEmployees[i].id, arrayEmployees[i].name, arrayEmployees[i].lastName, arrayEmployees[i].salary, arrayEmployees[i].sector);
+            printf("%5d %25s %25s %8.2f %3d\n", arrayEmployees[i].id, arrayEmployees[i].name, arrayEmployees[i].lastName, arrayEmployees[i].salary, arrayEmployees[i].sector);
         }
     }
     ret = NOTEMPTY;
@@ -296,8 +295,9 @@ void averageSalary(sEmployee arrayEmployees[], int lenght)
     float total = 0;
     int accountEmployees = 0;
     int highestSalary = 0;
+    int i;
 
-    for(int i=0; i<lenght; i++)
+    for(i=0; i<lenght; i++)
     {
         if(arrayEmployees[i].isEmpty == 0)
         {
@@ -307,7 +307,7 @@ void averageSalary(sEmployee arrayEmployees[], int lenght)
     }
     average = total/accountEmployees;
 
-    for(int i=0; i<lenght; i++)
+    for(i=0; i<lenght; i++)
     {
         if(arrayEmployees[i].isEmpty == 0)
         {

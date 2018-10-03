@@ -1,3 +1,10 @@
+#define EMPTY -1
+#define NOTEMPTY 0
+#define ACTIVE 1
+#define INACTIVE 0
+#define MAX 1000
+
+
 #ifndef arrayEmpleados
 
 typedef struct

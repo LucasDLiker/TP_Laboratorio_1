@@ -30,3 +30,34 @@
 	"funciones.h"
 	"arrayEmpleados.h"
 
+1538595038 source:d:\asdsadsa\tp_laboratorio_1-master\tp_numero_ii\arrayempleados.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<conio.h>
+	<string.h>
+	"funciones.h"
+	"arrayEmpleados.h"
+
+1538594069 d:\asdsadsa\tp_laboratorio_1-master\tp_numero_ii\funciones.h
+
+1538595038 d:\asdsadsa\tp_laboratorio_1-master\tp_numero_ii\arrayempleados.h
+
+1538594913 source:d:\asdsadsa\tp_laboratorio_1-master\tp_numero_ii\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<conio.h>
+	<string.h>
+	"funciones.h"
+	"arrayEmpleados.h"
+
+1538595038 source:d:\asdsadsa\tp_laboratorio_1-master\tp_numero_ii\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<conio.h>
+	<string.h>
+	"funciones.h"
+	"arrayEmpleados.h"
+

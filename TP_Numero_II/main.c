@@ -6,10 +6,7 @@
 #include "funciones.h"
 #include "arrayEmpleados.h"
 
-#define EMPTY -1
-#define ACTIVE 1
-#define INACTIVE 0
-#define MAX 1000
+
 
 int main()
 {
@@ -20,19 +17,19 @@ int main()
     int auxSector;
     int menuOption;
     int freeSlot;
-    int validar;
+    int validar=0;
 
 
     sEmployee arrayEmployees[MAX];
     initEmployees(arrayEmployees, MAX);
 
-    addEmployee(arrayEmployees, MAX, auxId, "Lucas", "Liker", 15000.5, 1);
+    /*addEmployee(arrayEmployees, MAX, auxId, "Lucas", "Liker", 15000.5, 1);
     addEmployee(arrayEmployees, MAX, auxId, "Pepito", "Pepin", 10000.7, 2);
     addEmployee(arrayEmployees, MAX, auxId, "Pablo", "Escobar", 50000.9, 3);
     addEmployee(arrayEmployees, MAX, auxId, "Violeta", "Pobre", 2000.7, 4);
     addEmployee(arrayEmployees, MAX, auxId, "Jorge", "Rodriguez", 15000.5, 5);
     addEmployee(arrayEmployees, MAX, auxId, "Brenda", "Perez", 21500.5, 6);
-    addEmployee(arrayEmployees, MAX, auxId, "Adrian", "Socotroco", 16000.5, 6);
+    addEmployee(arrayEmployees, MAX, auxId, "Adrian", "Socotroco", 16000.5, 6);*/
 
     while(menuOption != 5)
     {
@@ -44,10 +41,13 @@ int main()
             validar++;
             if(freeSlot != EMPTY)
             {
-                getStringLetras("\nIngrese el nombre del Empleado: \n", auxName);
-                getStringLetras("\nAhora, ingrese el apellido: \n", auxLastName);
+                getString("\nIngrese el nombre del Empleado: \n", auxName);
+                getString("\nIngrese el apellido del Empleado: \n", auxLastName);
+                //getStringLetras("\nIngrese el nombre del Empleado: \n", auxName);
+                //getStringLetras("\nAhora, ingrese el apellido: \n", auxLastName);
                 auxSalary=getFloat("\nPor favor, ingrese el sueldo: \n");
                 auxSector=getInt("\nPor ultimo, ingrese el sector: \n");
+
             }
             else
             {
@@ -63,21 +63,32 @@ int main()
                 modifyEmployee(arrayEmployees, MAX);
                 break;
             }
+            else
+            {
+                printf("No hay datos para eliminar");
+            }
             break;
             case 3:
-            if(validar>0)
+            if(validar > 0)
             {
                 removeEmployee(arrayEmployees, MAX, auxId);
             }
+            else{
+                printf("No hay datos para modificar");
+            }
             break;
             case 4:
-            if(validar>0)
+            if(validar > 0)
             {
                 sortEmployees(arrayEmployees, MAX);
                 printEmployees(arrayEmployees, MAX);
                 averageSalary(arrayEmployees, MAX);
                 system("pause");
                 system("cls");
+            }
+            else
+            {
+                printf("No hay datos para mostrar");
             }
             break;
             case 5:

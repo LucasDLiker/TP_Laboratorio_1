@@ -6,13 +6,13 @@
 #include "funciones.h"
 #include "arrayEmpleados.h"
 
-/** \brief Funcion que recibe un mensaje y devuelve un numero entero
- *
- * \param mensaje
- * \param
- * \return devuelve un entero
- *
- */
+float pedirNumero()
+{
+    float auxiliar;
+    printf("Ingrese un numero: ");
+    scanf("%f", &auxiliar);
+    return auxiliar;
+}
 
 int getInt(char mensaje[])
 {
@@ -21,7 +21,6 @@ int getInt(char mensaje[])
     scanf("%d", &auxiliar);
     return auxiliar;
 }
-
 float getFloat(char mensaje[])
 {
     float auxiliar;
@@ -29,48 +28,16 @@ float getFloat(char mensaje[])
     scanf("%f", &auxiliar);
     return auxiliar;
 }
-
-char getChar(char mensaje [])
+char getChar(char mensaje[])
 {
     char auxiliar;
     printf("%s", mensaje);
     fflush(stdin);
     scanf("%c", &auxiliar);
     return auxiliar;
-
 }
 
-/** \brief verifica si el valor recibido solo contiene letras.-
- *
- * \param str: array con la cadena a ser analizada.-
- * \return 1 si solo ' ' contiene letras, 0 si no es asi.-
- *
- */
-
-
-int onlyLetters(char str[])
-{
-    int i;
-    while(str[i] != '\0')
-    {
-        if((str[i] != ' ') && (str[i] < 'a' || str[i] > 'z') && (str[i] < 'A' || str[i] > 'Z'))
-        {
-            return 0;
-        }
-        i++;
-    }
-    return 1;
-}
-
-/** \brief verifica si el valor recibido solo contiene numeros.-
- *
- * \param str: array con la cadena a ser analizada.-
- * \return 1 si solo ' ' contiene numeros, 0 si no es asi.-
- *
- */
-
-
-int onlyNumbers(char str[])
+int esNumerico(char str[])
 {
     int i = 0;
     while(str[i] != '\0')
@@ -85,36 +52,42 @@ int onlyNumbers(char str[])
 }
 
 
-//numero aleatorio
+int esSoloLetras(char str[])
 
-char getNumeroAleatorio(int desde, int hasta, int iniciar)
 {
-    if(iniciar)
-        srand(time(NULL));
-    return desde + (rand() % (hasta +1 - desde));
+    int i;
+    while(str[i] != '\0')
+    {
+        if((str[i] != ' ') && (str[i] < 'a' || str[i] > 'z') && (str[i] < 'A' || str[i] > 'Z'))
+        {
+            return 0;
+        }
+        i++;
+    }
+    return 1;
 }
-
 
 void getString(char mensaje[], char input[])
 {
-    printf(mensaje);
+    printf("%s",mensaje);
     scanf("%s", input);
 }
-
-/** \brief Se le pide al usuario un texto y lo devuelve
- *
- * \param mensaje: el texto a ser mostrado
- * \param input: vector donde el texto sera cargado
- * \return 1: si el texto solo contiene letras / 0 si no es asi
- *
- */
-
-
 int getStringLetras(char mensaje[], char input[])
 {
     char aux[256];
     getString(mensaje,aux);
-    if(onlyLetters(aux))
+    if(esSoloLetras(aux))
+    {
+        strcpy(input,aux);
+        return 1;
+    }
+    return 0;
+}
+int getStringNumeros(char mensaje[], char input[])
+{
+    char aux[256];
+    getString(mensaje,aux);
+    if(esNumerico(aux))
     {
         strcpy(input,aux);
         return 1;
@@ -122,20 +95,11 @@ int getStringLetras(char mensaje[], char input[])
     return 0;
 }
 
-/** \brief Se le pide al usuario un texto y lo devuelve
- *
- * \param mensaje: el texto a ser mostrado
- * \param input: vector donde el texto sera cargado
- * \return 1: si el texto solo contiene numeros / 0 si no es asi
- *
- */
-
-
-int getStringNumeros(char mensaje[], char input[])
+float getStringFloat(char mensaje[], char input[])
 {
     char aux[256];
     getString(mensaje,aux);
-    if(onlyNumbers(aux))
+    if(esNumerico(aux))
     {
         strcpy(input,aux);
         return 1;
