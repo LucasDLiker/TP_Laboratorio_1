@@ -6,7 +6,6 @@
 #include "funciones.h"
 #include "arrayEmpleados.h"
 
-
 int menuOptions()
 {
     int menuOption;
@@ -16,16 +15,6 @@ int menuOptions()
     scanf("%d", &menuOption);
     return menuOption;
 }
-
-/** \brief Funcion que indica que todas las posiciones del vector estan vacias
- *
- * \param sEmployee* es un puntero al vector de empleados
- * \param lenght es el largo del vector
- * \return (-1) si el puntero (NULL) o la lenght tienen error. 0 (NOTEMPTY) si no hay error
- *
- */
-
-
 
 int initEmployees(sEmployee* arrayEmployees, int lenght)
 {
@@ -41,14 +30,6 @@ int initEmployees(sEmployee* arrayEmployees, int lenght)
     }
     return ret;
 }
-
-/** \brief Funcion que obtiene un espacio libre del vector que servira en la funcion de alta
- *
- * \param sEmployee* es un puntero al vector de empleados
- * \param lenght es el largo del vector
- * \return (-1) si el puntero (NULL) o la lenght tienen error. Retorna (i) si no hay error
- */
-
 
 int searchFreeSlot(sEmployee* arrayEmployees, int lenght)
 {
@@ -76,21 +57,12 @@ int searchFreeSlot(sEmployee* arrayEmployees, int lenght)
 
  static int newID()
 {
-    static int id= MAX;
+    static int id=MAX;
 
     id ++;
 
     return id;
 }
-
-/** \brief Funcion que sirve para encontrar un empleado via id
- *
- * \param sEmployee* es un puntero al vector de empleados
- * \param lenght es el largo del vector
- * \param recibe el parametro del id
- * \return la posicion del empleado
- *
- */
 
 int findEmployeeById(sEmployee* arrayEmployees, int lenght, int id)
 {
@@ -106,24 +78,9 @@ int findEmployeeById(sEmployee* arrayEmployees, int lenght, int id)
     return EMPTY;
 }
 
-/** \brief Agrega en un array de empleados existente los valores recibidos como parámetro en la primer
-posición libre.
- *
- * \param sEmployee* es un puntero al vector de empleados
- * \param lenght es el largo del vector
- * \param recibe un auxiliar de ID
- * \param recibe un auxiliar de Nombre
- * \param recibe un auxiliar de Apellido
- * \param recibe un auxiliar de Salario
- * \param recibe un auxiliar de Sector
- * \return (-1) si el puntero (NULL) o la lenght tienen error. 0 (NOTEMPTY) si no hay error
- *
- */
-
-
 int addEmployee(sEmployee* arrayEmployees, int lenght, int auxID, char auxName[], char auxLastName[], float auxSalary, int auxSector)
 {
-    int id;
+    int id=MAX;
     int ret = EMPTY;
     int index = searchFreeSlot(arrayEmployees,lenght);
     int j = findEmployeeById(arrayEmployees, MAX, index);
@@ -136,7 +93,7 @@ int addEmployee(sEmployee* arrayEmployees, int lenght, int auxID, char auxName[]
             {
                 id = newID();
             }
-            arrayEmployees[index].id=id;
+            arrayEmployees[index].id=newID();
             strcpy(arrayEmployees[index].name, auxName);
             strcpy(arrayEmployees[index].lastName, auxLastName);
             arrayEmployees[index].salary = auxSalary;
@@ -152,15 +109,6 @@ int addEmployee(sEmployee* arrayEmployees, int lenght, int auxID, char auxName[]
     return ret;
 }
 
-/** \brief Busca un ID existente para modificar los datos que el usuario quiera
- *
- * \param arrayEmployees
- * \param lenght
- * \return void
- *
- */
-
-
 void modifyEmployee(sEmployee* arrayEmployees, int lenght)
 {
     char auxName[51];
@@ -173,7 +121,7 @@ void modifyEmployee(sEmployee* arrayEmployees, int lenght)
     printf("\n Para modificar datos, ingrese el ID del empleado:  \n");
     scanf("%d", &auxId);
     int idEmployee=findEmployeeById(arrayEmployees, MAX, auxId);
-    if (idEmployee>=0)
+    if (idEmployee>0)
     {
         printf("\n Se ha encontrado el ID, modifique a continuacion: \n");
 
@@ -185,7 +133,7 @@ void modifyEmployee(sEmployee* arrayEmployees, int lenght)
         scanf("%f", &auxSalary);
         printf("\n Ingrese sector: \n");
         scanf("%d", &auxSector);
-        printf("Desea confirmar los cambios? S/N\n");
+        printf("\n Confirmar Cambios: s/n (s si, n no)\n");
         option=getChar("");
         switch(option)
         {
@@ -215,15 +163,6 @@ void modifyEmployee(sEmployee* arrayEmployees, int lenght)
         system("cls");
     }
 }
-
-/** \brief Funcion que ordena los empleados por apellido
- *
- * \param recibe el vector
- * \param recibe la cantidad
- * \return (-1) si el puntero (NULL) o la lenght tienen error. 0 (NOTEMPTY) si no hay error
- *
- */
-
 
 int sortEmployees(sEmployee* arrayEmployees, int quantity)
 {
@@ -256,38 +195,21 @@ int sortEmployees(sEmployee* arrayEmployees, int quantity)
     return retorno;
 }
 
-/** \brief Muestra la lista de empleados con sus respectivos sueldos, sectores e IDS
- *
- * \param recibe el vector
- * \param recibe la cantidad
- * \return (-1) si el puntero (NULL) o la lenght tienen error. 0 (NOTEMPTY) si no hay error
- *
- */
-
-
 int printEmployees(sEmployee* arrayEmployees, int quantity)
 {
     int ret = EMPTY;
     int i;
-    printf("\n%5s %25s %25s %8s %3s \n", "ID","NOMBRE","APELLIDO","SUELDO","SECTOR");
+    printf("\n%3s %11s %10s %15s %15s \n", "ID","NOMBRE","APELLIDO","SUELDO","SECTOR");
     for(i = 0; i < quantity; i++)
     {
         if(arrayEmployees[i].isEmpty == 0)
         {
-            printf("%5d %25s %25s %8.2f %3d\n", arrayEmployees[i].id, arrayEmployees[i].name, arrayEmployees[i].lastName, arrayEmployees[i].salary, arrayEmployees[i].sector);
+            printf("%3d %10s %10s %15.2f %12d\n", arrayEmployees[i].id, arrayEmployees[i].name, arrayEmployees[i].lastName, arrayEmployees[i].salary, arrayEmployees[i].sector);
         }
     }
     ret = NOTEMPTY;
     return ret;
 }
-
-/** \brief Funcion que calcula el promedio de salarios
- *
- * \param vector de empleados
- * \param largo del vector
- * \return void
- *
- */
 
 void averageSalary(sEmployee arrayEmployees[], int lenght)
 {
@@ -317,19 +239,11 @@ void averageSalary(sEmployee arrayEmployees[], int lenght)
             }
         }
     }
-
-    printf("\n El total de salarios es: %.2f\n", total);
-    printf("\n El promedio de los salarios es: %.2f\n", average);
-    printf("\n La cantidad de Empleados que superan el promedio: %d\n", highestSalary);
+    printf("\n SALARIOS: \n");
+    printf("\n TOTAL: %.2f\n", total);
+    printf("\n PROMEDIO: %.2f\n", average);
+    printf("\n Cantidad de empleados que superan el salario promedio: %d\n", highestSalary);
 }
-
-/** \brief
- *
- * \param
- * \param
- * \return
- *
- */
 
  int removeEmployee(sEmployee* arrayEmployees, int lenght, int id)
  {
@@ -337,34 +251,34 @@ void averageSalary(sEmployee arrayEmployees[], int lenght)
     int auxId;
     char opcion;
 
-    printf("Ingrese el ID a buscar: \n");
+    printf("\n Ingrese el ID del empleado a dar de baja: \n");
     scanf("%d", &auxId);
     int idEmployee=findEmployeeById(arrayEmployees, MAX, auxId);
     if (idEmployee>=0)
     {
-        printf("Confirma la baja? S/N\n");
+        printf("\n Confirmar baja de empleado: s/n (s si, n no)\n");
         opcion=getChar("");
         switch(opcion)
         {
         case 's':
             arrayEmployees[idEmployee].isEmpty = 1;
-            printf("Baja realizada con exito.\n");
+            printf("\n La baja se ha realizado satisfactoriamente.\n");
             system("pause");
             system("cls");
             break;
         case 'n':
-            printf("Se cancelo la baja.\n");
+            printf("\n Se ha cancelado la funcion de baja. \n");
             system("pause");
             system("cls");
             break;
         default:
-            printf("Ingrese una opcion valida.\n");
+            printf("\n Error. La opcion ingresada es invalida.\n");
             break;
         }
     }
     else
     {
-        printf ("ID vacio, intente nuevamente.\n");
+        printf ("\n El ID ingresado es invalido.\n");
         system ("pause");
         system("cls");
     }

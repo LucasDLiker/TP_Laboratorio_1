@@ -23,13 +23,20 @@ int main()
     sEmployee arrayEmployees[MAX];
     initEmployees(arrayEmployees, MAX);
 
-    /*addEmployee(arrayEmployees, MAX, auxId, "Lucas", "Liker", 15000.5, 1);
-    addEmployee(arrayEmployees, MAX, auxId, "Pepito", "Pepin", 10000.7, 2);
-    addEmployee(arrayEmployees, MAX, auxId, "Pablo", "Escobar", 50000.9, 3);
+    /**Hardocde de ingreso de empleados **/
+
+    /*if(validar==0)
+    {
+    addEmployee(arrayEmployees, MAX, auxId, "Lucas", "Liker", 15000.5, 0);
+    addEmployee(arrayEmployees, MAX, auxId, "Pepito", "Pepin", 10000.7, 0);
+    addEmployee(arrayEmployees, MAX, auxId, "Pablo", "Escobar", 50000.9, 0);
     addEmployee(arrayEmployees, MAX, auxId, "Violeta", "Pobre", 2000.7, 4);
     addEmployee(arrayEmployees, MAX, auxId, "Jorge", "Rodriguez", 15000.5, 5);
     addEmployee(arrayEmployees, MAX, auxId, "Brenda", "Perez", 21500.5, 6);
-    addEmployee(arrayEmployees, MAX, auxId, "Adrian", "Socotroco", 16000.5, 6);*/
+    addEmployee(arrayEmployees, MAX, auxId, "Adrian", "Socotroco", 16000.5, 0);
+    validar++;
+    }*/
+
 
     while(menuOption != 5)
     {
@@ -41,13 +48,10 @@ int main()
             validar++;
             if(freeSlot != EMPTY)
             {
-                getString("\nIngrese el nombre del Empleado: \n", auxName);
-                getString("\nIngrese el apellido del Empleado: \n", auxLastName);
-                //getStringLetras("\nIngrese el nombre del Empleado: \n", auxName);
-                //getStringLetras("\nAhora, ingrese el apellido: \n", auxLastName);
-                auxSalary=getFloat("\nPor favor, ingrese el sueldo: \n");
-                auxSector=getInt("\nPor ultimo, ingrese el sector: \n");
-
+                getValidString("\n Ingrese nombre del empleado: ", "\nError. Solo se permiten letras, vuelva a ingresar el nombre: \n", auxName);
+                getValidString("\n Ahora, ingrese apellido: ", "\nError, Solo se permiten letras, vuelva a ingresar el apellido: \n", auxLastName);
+                auxSalary=getValidFloat("\n Ingresar salario: ", "\nError, el dato es invalido \n", 0, 99999999);
+                auxSector=getValidInt("\n Por ultimo, ingrese el sector: ", "\nError, el dato es invalido\n", 0, 200);
             }
             else
             {
