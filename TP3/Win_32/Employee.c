@@ -20,7 +20,7 @@ int menuOptions()
      "7. Ordenar empleados\n"
      "8. Guardar los datos de los empleados en el archivo data.csv (modo texto).\n"
      "9. Guardar los datos de los empleados en el archivo data.csv (modo binario).\n"
-    "10. Salir\n");
+     "10. Salir\n");
     fflush(stdin);
     scanf("%d", &menuOption);
     return menuOption;
@@ -54,6 +54,54 @@ Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajad
     return auxEmployee;
 }
 
+int employee_setId(Employee* this,int id)
+{
+    int estado = 0;
 
+    if(this == NULL)
+    {
+        printf("Se ha producido un error.\n");
+    }
+    else
+    {
+        this->id = id;
+        estado = 1;
+    }
+    return estado;
+}
 
+int employee_setNombre(Employee* this,char* nombre)
+{
+    int estado=0;
 
+    if (strlen(nombre) != 0 && this != NULL)
+    {
+        strcpy(this->nombre, nombre);
+        estado=1;
+    }
+    return estado;
+}
+
+int employee_setHorasTrabajadas(Employee* this,int horasTrabajadas)
+{
+    int estado = 0;
+
+    if (this != NULL)
+    {
+        this->horasTrabajadas = horasTrabajadas;
+        estado = 1;
+    }
+    return estado;
+}
+
+int employee_setSueldo(Employee* this,int sueldo)
+{
+    int estado = 0;
+
+    if (this != NULL)
+    {
+        this->sueldo = sueldo;
+        estado = 1;
+    }
+    return estado;
+}

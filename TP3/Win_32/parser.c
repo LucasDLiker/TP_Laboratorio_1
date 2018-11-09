@@ -40,6 +40,23 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
  */
 int parser_EmployeeFromBinary(FILE* pFile , LinkedList* pArrayListEmployee)
 {
+    Employee auxEmployee;
+    int i = 0;
+    fread(&auxEmployee, sizeof(Employee), 1, pFile);///Al ser archivo binario lo abr con fread
+    while(!feof(pFile))
+    {
+        Employee* empleado = employee_new();
+        employee_setId(empleado,auxEmployee.id);
+        employee_setHorasTrabajadas(empleado,auxEmployee.horasTrabajadas);
+        employee_setNombre(empleado,auxEmployee.nombre);
+        employee_setSueldo(empleado,auxEmployee.sueldo);
 
+        i ++;
+        ll_add(pArrayListEmployee, empleado);
+        fread(&auxEmployee, sizeof(Employee), 1, pFile);
+    }
+
+    printf("Empleados cargados: %d\n", i);
     return 1;
 }
+

@@ -3,6 +3,7 @@
 #include "LinkedList.h"
 #include "Employee.h"
 #include "parser.h"
+#include "funciones.h"
 
 
 /** \brief Carga los datos de los empleados desde el archivo data.csv (modo texto).
@@ -31,7 +32,14 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
  */
 int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
 {
-    return 1;
+    FILE* pFile = fopen(path, "rb");
+    int estado=0;
+    if (pFile != NULL)
+    {
+        estado = parser_EmployeeFromBinary(pFile, pArrayListEmployee);
+    }
+
+    return estado;
 }
 
 /** \brief Alta de empleados
@@ -43,7 +51,26 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
  */
 int controller_addEmployee(LinkedList* pArrayListEmployee)
 {
-    return 1;
+   int estado = 0;
+   char auxId[10];
+   char auxName[51];
+   char auxWorkedHours[51];
+   char auxSalary[10];
+
+   Employee* newEmployee;
+
+   if(pArrayListEmployee != NULL)
+   {
+       getStringNumeros("Ingresar ID del empleado: \n", auxId);
+       getValidString("Ingresar el nombre del empleado: ", "Error. Nombre invalido",auxName);
+       getStringNumeros("Ingresar horas trabajadas del empleado: ",  auxWorkedHours);
+       getStringNumeros("Ingresar el salario del empleado: ",  auxSalary);
+       newEmployee = employee_newParametros(auxId, auxName, auxWorkedHours, auxSalary);
+       ll_add(pArrayListEmployee, newEmployee);
+
+       estado = 1;
+   }
+    return estado;
 }
 
 /** \brief Modificar datos de empleado
@@ -79,7 +106,19 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_ListEmployee(LinkedList* pArrayListEmployee)
 {
-    return 1;
+    Employee* pEmployee;
+    int estado = 0;
+    int list = ll_len(pArrayListEmployee);
+    int i;
+    if(list>0)
+    {
+        for(i=0;i<list;i++)
+        {
+            pEmployee=(Employee*)ll_get(pArrayListEmployee, i);
+            printf("ID: %d NOMBRE: %s HORAS TRABAJADAS: %d SUELDO: %d\n", pEmployee->id,pEmployee->nombre,pEmployee->horasTrabajadas,pEmployee->sueldo);
+        }
+    }
+    return estado;
 }
 
 /** \brief Ordenar empleados
