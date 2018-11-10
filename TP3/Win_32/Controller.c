@@ -52,10 +52,12 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
 int controller_addEmployee(LinkedList* pArrayListEmployee)
 {
    int estado = 0;
+  // char verificarId[10];
    char auxId[10];
    char auxName[51];
    char auxWorkedHours[51];
    char auxSalary[10];
+  // int i;
 
    Employee* newEmployee;
 
@@ -142,7 +144,29 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
 {
-    return 1;
+    FILE* pFile = fopen(path, "w");
+    int estado = 0;
+    int archivo = ll_len(pArrayListEmployee);
+    int i;
+    Employee* pEmployee;
+
+    if (pFile == NULL)
+    {
+        printf("Se ha producido un error al guardar el archivo. \n");
+        return estado;
+    }
+    if (pArrayListEmployee != NULL)
+    {
+        for (i = 0; i < archivo ; i++)
+        {
+            pEmployee = (Employee*)ll_get(pArrayListEmployee, i);
+            fprintf(pFile, "ID: %d NOMBRE: %s HORAS TRABAJADAS: %d SUELDO: %d\n", pEmployee->id,pEmployee->nombre,pEmployee->horasTrabajadas,pEmployee->sueldo);
+        }
+        printf("El archivo se ha guardado exitosamente. \n");
+        estado=1;
+    }
+    fclose(pFile);
+    return estado;
 }
 
 /** \brief Guarda los datos de los empleados en el archivo data.csv (modo binario).

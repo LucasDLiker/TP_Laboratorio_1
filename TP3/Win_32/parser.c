@@ -25,7 +25,7 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
         fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",id, nombre, horasTrabajadas, sueldo);
         auxEmployee=employee_newParametros(id,nombre,horasTrabajadas,sueldo);
         ll_add(pArrayListEmployee, auxEmployee);
-        printf("%d %s %d %d\n", auxEmployee->id,auxEmployee->nombre,auxEmployee->horasTrabajadas,auxEmployee->sueldo);
+       // printf("%d %s %d %d\n", auxEmployee->id,auxEmployee->nombre,auxEmployee->horasTrabajadas,auxEmployee->sueldo);
     }
     free(pFile);
     return 1;

@@ -24,6 +24,7 @@
 int main()
 {
     int option;
+    int flag=0;
     LinkedList* listaEmpleados = ll_newLinkedList();
     LinkedList* listaEmpleadosBinario = ll_newLinkedList();
 
@@ -36,10 +37,16 @@ int main()
                 {
                   printf("Error. No se ha podido cargar la lista\n");
                 }
-                else
+                else if(flag == 0)
                 {
                   controller_loadFromText("data.csv",listaEmpleados);
                   printf("\nLa carga de datos de los empleados (TEXTO) ha sido exitosa.\n");
+
+                  flag = 1;
+                }
+                else
+                {
+                    printf("Ya se han cargado los datos\n");
                 }
                 break;
             case 2:
@@ -50,12 +57,13 @@ int main()
                 else
                 {
                    controller_loadFromBinary("data.bin", listaEmpleadosBinario);
-                   //printf("\nLa carga de datos de los empleados (BINARIO) ha sido exitosa.\n");
+                   printf("\nLa carga de datos de los empleados (BINARIO) ha sido exitosa.\n");
                 }
 
                 break;
             case 3:
                     controller_addEmployee(listaEmpleados);
+                    flag = 1;
                 break;
             case 4:
 
@@ -64,13 +72,20 @@ int main()
 
                 break;
             case 6:
-                controller_ListEmployee(listaEmpleados);
+               if (flag==0)
+               {
+                   printf("No se han cargado datos.\n");
+               }
+               else
+               {
+                 controller_ListEmployee(listaEmpleados);
+               }
                 break;
             case 7:
 
                 break;
             case 8:
-
+                controller_saveAsText("data.csv",listaEmpleados);
                 break;
             case 9:
 

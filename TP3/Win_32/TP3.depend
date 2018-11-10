@@ -124,7 +124,7 @@
 
 1541712379 c:\users\capitan hostias\desktop\tp3\win_32\parser.h
 
-1541804290 source:c:\users\capitan hostias\desktop\lab i - programación i\tp_numero_2\tp_laboratorio_1\tp3\win_32\controller.c
+1541809076 source:c:\users\capitan hostias\desktop\lab i - programación i\tp_numero_2\tp_laboratorio_1\tp3\win_32\controller.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
@@ -132,13 +132,13 @@
 	"parser.h"
 	"funciones.h"
 
-1541712379 c:\users\capitan hostias\desktop\lab i - programación i\tp_numero_2\tp_laboratorio_1\tp3\win_32\linkedlist.h
+1541808284 c:\users\capitan hostias\desktop\lab i - programación i\tp_numero_2\tp_laboratorio_1\tp3\win_32\linkedlist.h
 
 1541714301 c:\users\capitan hostias\desktop\lab i - programación i\tp_numero_2\tp_laboratorio_1\tp3\win_32\employee.h
 
 1541712379 c:\users\capitan hostias\desktop\lab i - programación i\tp_numero_2\tp_laboratorio_1\tp3\win_32\parser.h
 
-1541804139 source:c:\users\capitan hostias\desktop\lab i - programación i\tp_numero_2\tp_laboratorio_1\tp3\win_32\main.c
+1541809001 source:c:\users\capitan hostias\desktop\lab i - programación i\tp_numero_2\tp_laboratorio_1\tp3\win_32\main.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -157,15 +157,62 @@
 	"LinkedList.h"
 	"Employee.h"
 
-1541799089 source:c:\users\capitan hostias\desktop\lab i - programación i\tp_numero_2\tp_laboratorio_1\tp3\win_32\parser.c
+1541804773 source:c:\users\capitan hostias\desktop\lab i - programación i\tp_numero_2\tp_laboratorio_1\tp3\win_32\parser.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
 	"Employee.h"
 
-1538610297 c:\users\capitan hostias\desktop\lab i - programación i\tp_numero_2\tp_laboratorio_1\tp3\win_32\funciones.h
+1541808284 c:\users\capitan hostias\desktop\lab i - programación i\tp_numero_2\tp_laboratorio_1\tp3\win_32\funciones.h
 
 1538610451 source:c:\users\capitan hostias\desktop\lab i - programación i\tp_numero_2\tp_laboratorio_1\tp3\win_32\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+
+1541808122 source:c:\users\capitan hostias\desktop\lab i - programación i\tp 3 backup\tp_laboratorio_1\tp3\win_32\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"parser.h"
+	"funciones.h"
+
+1541808284 c:\users\capitan hostias\desktop\lab i - programación i\tp 3 backup\tp_laboratorio_1\tp3\win_32\linkedlist.h
+
+1541714301 c:\users\capitan hostias\desktop\lab i - programación i\tp 3 backup\tp_laboratorio_1\tp3\win_32\employee.h
+
+1541712379 c:\users\capitan hostias\desktop\lab i - programación i\tp 3 backup\tp_laboratorio_1\tp3\win_32\parser.h
+
+1541808284 c:\users\capitan hostias\desktop\lab i - programación i\tp 3 backup\tp_laboratorio_1\tp3\win_32\funciones.h
+
+1541803051 source:c:\users\capitan hostias\desktop\lab i - programación i\tp 3 backup\tp_laboratorio_1\tp3\win_32\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1541809001 source:c:\users\capitan hostias\desktop\lab i - programación i\tp 3 backup\tp_laboratorio_1\tp3\win_32\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+
+1541712379 c:\users\capitan hostias\desktop\lab i - programación i\tp 3 backup\tp_laboratorio_1\tp3\win_32\controller.h
+
+1541804773 source:c:\users\capitan hostias\desktop\lab i - programación i\tp 3 backup\tp_laboratorio_1\tp3\win_32\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1538610451 source:c:\users\capitan hostias\desktop\lab i - programación i\tp 3 backup\tp_laboratorio_1\tp3\win_32\funciones.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
