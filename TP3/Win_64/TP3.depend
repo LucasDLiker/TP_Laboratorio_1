@@ -53,3 +53,54 @@
 	"LinkedList.h"
 	"Employee.h"
 
+1560475473 source:c:\users\capitan hostias\desktop\tp3\win_64\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"parser.h"
+	"utn.h"
+
+1533133022 c:\users\capitan hostias\desktop\tp3\win_64\linkedlist.h
+
+1560475473 c:\users\capitan hostias\desktop\tp3\win_64\employee.h
+
+1560475039 source:c:\users\capitan hostias\desktop\tp3\win_64\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1560473467 source:c:\users\capitan hostias\desktop\tp3\win_64\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+	"utn.h"
+
+1560457391 c:\users\capitan hostias\desktop\tp3\win_64\controller.h
+
+1560473986 source:c:\users\capitan hostias\desktop\tp3\win_64\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1533133022 c:\users\capitan hostias\desktop\tp3\win_64\parser.h
+
+1560457391 c:\users\capitan hostias\desktop\tp3\win_64\utn.h
+
+1560457391 source:c:\users\capitan hostias\desktop\tp3\win_64\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	<ctype.h>
+	"utn.h"
+
