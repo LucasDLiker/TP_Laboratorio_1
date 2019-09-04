@@ -19,7 +19,7 @@ int main()
     int resta;
     int multiplicacion;
     float division;
-    long long int factorial;
+    long long int factorialOperadorA;
     long long int factorialOperadorB;
     int verificadorUno=0;
     int verificadorDos=0;
@@ -27,7 +27,7 @@ int main()
 
 
     printf("\n Calculadora de enteros. Ingrese una de las siguientes opciones: \n");
-    system ("pause");
+    //system ("pause");
 
     do
     {
@@ -36,11 +36,13 @@ int main()
         printf("\n (1).- Ingresar el operador A= %d \n", operadorA);
         printf("\n (2).- Ingresar el operador B= %d \n", operadorB);
         printf("\n (3).- Calcular todas las operaciones) \n");
-        printf("\n Sumar (A+B) \n");
-        printf("\n Restar (A-B) \n");
-        printf("\n Multiplicación (A * B) \n");
-        printf("\n División (A / B) \n");
-        printf("\n Factorial de A y B (!N) \n");
+        printf("\n ------------------------------------- \n");
+        printf("\n      *Sumar (A+B) \n");
+        printf("\n      *Restar (A-B) \n");
+        printf("\n      *Multiplicacion (A * B) \n");
+        printf("\n      *Division (A / B) \n");
+        printf("\n      *Factorial de A y B (!N) \n");
+        printf("\n ------------------------------------- \n");
         printf("\n (4).- Informar resultados: ");
         printf("\n (5).- Salir de la calculadora.- \n");
 
@@ -75,8 +77,8 @@ int main()
         //Division
         division=dividir(operadorA, operadorB);
         //Factorial
-        factorial=factorialMainA(operadorA);
-        factorialOperadorB=factorialMainB(operadorB);
+        factorialOperadorA=factorialMain(operadorA);
+        factorialOperadorB=factorialMain(operadorB);
         casoTres++;
 
 
@@ -109,7 +111,7 @@ int main()
             }
             else
             {
-        printf("\n El resultado del factorial de %d es: %lld \n", operadorA, factorial);
+        printf("\n El resultado del factorial de %d es: %lld \n", operadorA, factorialOperadorA);
               }
             if (operadorB < 0)
              {

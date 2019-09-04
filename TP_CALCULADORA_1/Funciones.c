@@ -60,13 +60,13 @@ float dividir(int operadorA, int operadorB)
     return (float)resultadoDivision;
 }
 //funcion de factorial
-long long int factorialMainA(int operadorA)
+long long int factorialMain(int operador)
 {
 
     long long int resultadoFactorial=1;
     int i;
 
-    for (i=operadorA; i>=1; i-- )
+    for (i=operador; i>=1; i-- )
     {
 
         resultadoFactorial=resultadoFactorial*i;
@@ -75,22 +75,5 @@ long long int factorialMainA(int operadorA)
     return resultadoFactorial;
 
 }
-
-long long int factorialMainB(int operadorB)
-
-{
-
-    long long int resultadoFactorialOperadorB=1;
-    int i;
-
-    for (i=operadorB; i>=1; i-- )
-    {
-
-        resultadoFactorialOperadorB=resultadoFactorialOperadorB*i;
-    }
-
-    return resultadoFactorialOperadorB;
-
-    }
 
 

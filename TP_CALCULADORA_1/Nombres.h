@@ -59,7 +59,7 @@ float dividir(int operadorA, int operadorB);
  * \return devuelve el resultado de la operacion.-
  *
  */
-long long int factorialMainA(int operadorA);
+long long int factorialMain(int operador);
 
 /** \brief factorial del segundo numero: Funcion que calcula el factorial.-
  *
@@ -68,5 +68,5 @@ long long int factorialMainA(int operadorA);
  *
  */
 
-long long int factorialMainB(int operadorB);
+//long long int factorialMainB(int operadorB);
 
